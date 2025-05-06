@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ListDishesViewController: UIViewController {
 
@@ -13,17 +14,27 @@ class ListDishesViewController: UIViewController {
     
     var category: DishCategory!
     
-    var dishes: [Dish] = [
-        .init(id: "id1", name: "Garri", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 34),
-        .init(id: "id1", name: "Indomie", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 314),
-        .init(id: "id1", name: "Pizza", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 100)
-    ]
+    var dishes: [Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = category.name
         register()
+        
+        ProgressHUD.animate()
+        NetworkService.shared.fetchCategoryDishes(categoryId: category.id ?? "") { [weak self] (result) in
+        
+            switch result {
+            case .success(let dishes):
+                ProgressHUD.dismiss()
+                self?.dishes = dishes
+                self?.tableView.reloadData()
+            case .failure(let error):
+                ProgressHUD.error(error.localizedDescription)
+            }
+            
+        }
 
     }
     

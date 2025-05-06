@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ListOrdersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var orders: [Order] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +20,19 @@ class ListOrdersViewController: UIViewController {
         register()
     }
     
-    let orders: [Orders] = [
-        .init(id: "1", name: "Shahma Ansari", dish: .init(id: "id1", name: "Garri", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 34)),
-        .init(id: "1", name: "Faizan Khan", dish: .init(id: "id1", name: "Garri", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 34)),
-        .init(id: "1", name: "Praveen Srivastava", dish: .init(id: "id1", name: "Garri", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 34)),
-        .init(id: "1", name: "Piyush Singh", dish: .init(id: "id1", name: "Garri", description: "This is the best dish that i have ever tested", image: "https://picsum.photos/100/200", calories: 34)),
-        
-    ]
+    override func viewDidAppear(_ animated: Bool) {
+        ProgressHUD.animate()
+        NetworkService.shared.fetchOrders { [weak self] (result) in
+            switch result {
+            case .success(let orders):
+                ProgressHUD.dismiss()
+                self?.orders = orders
+                self?.tableView.reloadData()
+            case .failure(let error):
+                ProgressHUD.error(error.localizedDescription)
+            }
+        }
+    }
     
     private func register() {
         tableView.register(UINib(nibName: DishListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.identifier)

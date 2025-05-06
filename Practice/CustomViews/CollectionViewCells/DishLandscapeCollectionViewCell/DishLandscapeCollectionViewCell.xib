@@ -62,9 +62,11 @@
                             <constraint firstItem="ktL-lY-WrG" firstAttribute="top" secondItem="vHD-7o-AKZ" secondAttribute="top" id="Gom-vk-HN2"/>
                             <constraint firstItem="ktL-lY-WrG" firstAttribute="leading" secondItem="vHD-7o-AKZ" secondAttribute="trailing" constant="16" id="HDy-mK-LFe"/>
                             <constraint firstAttribute="bottom" secondItem="vHD-7o-AKZ" secondAttribute="bottom" constant="16" id="Xgk-a1-gwD"/>
+                            <constraint firstAttribute="height" constant="100" id="hAB-BI-YmW"/>
                             <constraint firstAttribute="trailing" secondItem="ktL-lY-WrG" secondAttribute="trailing" constant="16" id="kDT-5d-zR6"/>
                             <constraint firstItem="ktL-lY-WrG" firstAttribute="bottom" secondItem="vHD-7o-AKZ" secondAttribute="bottom" id="lrP-mA-EQP"/>
                             <constraint firstItem="vHD-7o-AKZ" firstAttribute="top" secondItem="jGE-0n-QYz" secondAttribute="top" constant="16" id="oPi-TQ-Mjl"/>
+                            <constraint firstAttribute="width" constant="300" id="wBm-We-NFP"/>
                         </constraints>
                     </view>
                 </subviews>

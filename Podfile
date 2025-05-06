@@ -7,5 +7,7 @@ target 'Practice' do
 
   # Pods for Practice
   pod "Kingfisher"
+  pod "ProgressHUD"
+  pod "IQKeyboardManagerSwift"
 
 end
