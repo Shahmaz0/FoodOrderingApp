@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="1985.4961832061067" y="-56.338028169014088"/>
         </scene>
-        <!--Yummie-->
+        <!--Delicious-->
         <scene sceneID="Opz-Fq-o5k">
             <objects>
                 <viewController id="b0m-vN-O68" customClass="HomeViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
@@ -297,7 +297,7 @@
                             <constraint firstItem="Rtt-Ji-jG9" firstAttribute="leading" secondItem="H0M-cj-ICB" secondAttribute="leading" id="qrb-Y3-kDb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Yummie" id="wGE-8y-O8Q">
+                    <navigationItem key="navigationItem" title="Delicious" id="wGE-8y-O8Q">
                         <barButtonItem key="rightBarButtonItem" image="cart.circle.fill" catalog="system" id="vYU-gL-gqA">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
